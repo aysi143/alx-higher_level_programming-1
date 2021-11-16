@@ -1,5 +1,5 @@
-#Python if/else/ loops/functions
-#General
+# Python if/else/ loops/functions
+# General
 
     Why Python programming is awesome
     Why indentation is so important in Python
@@ -18,7 +18,7 @@
     What’s a traceback
     What are the arithmetic operators and how to use them
 
-#C Scripts
+# C Scripts
 
     Allowed editors: vi, vim, emacs
     All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
