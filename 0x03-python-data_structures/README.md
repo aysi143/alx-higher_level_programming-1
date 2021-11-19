@@ -15,4 +15,4 @@
 12. Switch 
 13. Linked list palindrome
 ###  One Adavced question ###
-
+14. CPython #0: Python lists 
