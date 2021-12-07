@@ -38,3 +38,27 @@ class Square():
     def position(self):
         """Get or set the position of the square."""
         return self.__position
+
+    @position.setter
+    def position(self, value):
+        if type(value) is tuple and len(value) is 2 and \
+            type(value[0]) is int and type(value[1]) is int and \
+                value[0] >= 0 and value[1] >= 0:
+            self.__position = value
+        else:
+            raise TypeError("position must be a tuple of 2 positive integers")
+
+    def area(self):
+        """Returns the current square area."""
+        return self.__size ** 2
+
+    def my_print(self):
+        """Prints the square with the # character on stdout."""
+        if self.__size > 0:
+            for y in range(self.__position[1]):
+                print()
+            for x in range(self.__size):
+                print(' ' * self.__position[0], end='')
+                print('#' * self.__size)
+        else:
+            print()
