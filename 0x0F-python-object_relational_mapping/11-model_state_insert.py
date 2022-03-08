@@ -1,35 +1,25 @@
 #!/usr/bin/python3
 """
-Script that adds the `State` object “Louisiana”
-to the database `hbtn_0e_6_usa`.
-Arguments:
-    mysql username (str)
-    mysql password (str)
-    database name (str)
+script that adds the State object “Louisiana” to the database hbtn_0e_6_usa
+    - script takes 3 arguments: mysql username, mysql password and databasename
+    - uses the module SQLAlchemy
+    - imports State and Base from model_state
+    - script should connect to a MySQL server running on localhost at port 3306
+    Print the new states.id after creation
 """
 
-import sys
-from sqlalchemy import (create_engine)
-from sqlalchemy.orm import Session
-from sqlalchemy.engine.url import URL
-from model_state import Base, State
+if __name__ == '__main__':
+    import sys
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import sessionmaker
+    from model_state import Base, State
 
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+    Session = sessionmaker(bind=engine)
+    s = Session()
 
-if __name__ == "__main__":
-    mySQL_u = sys.argv[1]
-    mySQL_p = sys.argv[2]
-    db_name = sys.argv[3]
-
-    url = {'drivername': 'mysql+mysqldb', 'host': 'localhost',
-           'username': mySQL_u, 'password': mySQL_p, 'database': db_name}
-
-    engine = create_engine(URL(**url), pool_pre_ping=True)
-    Base.metadata.create_all(engine)
-
-    session = Session(bind=engine)
-
-    new = State(name="Louisiana")
-    session.add(new)
-    session.commit()
-
-    print(new.id)
+    new_state = State(name="Louisiana")
+    s.add(new_state)
+    s.commit()
+    print(new_state.id)
