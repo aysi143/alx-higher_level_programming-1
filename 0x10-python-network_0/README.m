@@ -1,5 +1,4 @@
-# Python - Network #0
-
+# Python - Network -0
 
 
 ### Tasks
@@ -10,4 +9,3 @@
 	4. cURL headers
 	5. cURL POST parameters
 	6. Find a peak
-
